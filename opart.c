@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "opart.h"
 
-void fmov(char comando[][30], char linha, int r[32]){
+void fmov(char comando[][30], int linha, int r[32]){
     char straux1[30], straux2[30];
     int x, y, num;
 
@@ -17,7 +17,7 @@ void fmov(char comando[][30], char linha, int r[32]){
     printf("%d\n", r[x]);
 }
 
-void fadd(char comando[][30], char linha, int r[32]){
+void fadd(char comando[][30], int linha, int r[32]){
     char straux[30];
     int x, y, z;
 
@@ -26,7 +26,7 @@ void fadd(char comando[][30], char linha, int r[32]){
     printf("%d\n", r[x]);
 }
 
-void fsub(char comando[][30], char linha, int r[32]){
+void fsub(char comando[][30], int linha, int r[32]){
     char straux[30];
     int x, y, z;
 
@@ -35,7 +35,7 @@ void fsub(char comando[][30], char linha, int r[32]){
     printf("%d\n", r[x]);
 }
 
-void fmul(char comando[][30], char linha, int r[32]){
+void fmul(char comando[][30], int linha, int r[32]){
     char straux[30];
     int x, y, z;
 
@@ -44,7 +44,7 @@ void fmul(char comando[][30], char linha, int r[32]){
     printf("%d\n", r[x]);
 }
 
-void fdiv(char comando[][30], char linha, int r[32]){
+void fdiv(char comando[][30], int linha, int r[32]){
     char straux[30];
     int x, y, z;
 
@@ -53,7 +53,7 @@ void fdiv(char comando[][30], char linha, int r[32]){
     printf("%d\n", r[x]);
 }
 
-void fmodz(char comando[][30], char linha, int r[32]){
+void fmodz(char comando[][30], int linha, int r[32]){
     char straux[30];
     int x, y, z;
 
