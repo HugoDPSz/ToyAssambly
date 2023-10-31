@@ -2,13 +2,20 @@
 #include <string.h>
 #include "controle.h"
 #include "opart.h"
+#include "oplog.h"
+#include "opmem.h"
+#include "saida.h"
 
 void controle(char comando[][30]){
-    int i, j=0, r[32];
+    int i, j=0, r[32], memory[1000];
     char straux[30];
 
     for(i=0; i<32; i++){ //Inicilizando todos os registradores com zero
         r[i] = 0;
+    }
+
+    for(i=0; i<1000; i++){ //Inicializando a memoria com zero
+        memory[i] = 0;
     }
 
     printf("\n");
@@ -17,37 +24,30 @@ void controle(char comando[][30]){
 
         //Comparacoes para saber qual funcao chamar
         if(strcasecmp(straux, "MOV") == 0){
-            printf("Voce selecionou MOV\n");
             fmov(comando, j, r);
-        } else if(strcasecmp(straux, "ADD") == 0){
-            printf("Voce selecionou ADD\n");
+        } else if(strcasecmp(straux, "ADD") == 0){ //Chamando funcao para ADD
             fadd(comando, j, r);
-        } else if(strcasecmp(straux, "SUB") == 0){
-            printf("Voce selecionou SUB\n");
+        } else if(strcasecmp(straux, "SUB") == 0){ //Chamando funcao para SUB
             fsub(comando, j, r);
-        } else if(strcasecmp(straux, "MUL") == 0){
-            printf("Voce selecionou MUL\n");
+        } else if(strcasecmp(straux, "MUL") == 0){ //Chamando funcao para MUL
             fmul(comando, j, r);
-        } else if(strcasecmp(straux, "DIV") == 0){
-            printf("Voce selecionou DIV\n");
+        } else if(strcasecmp(straux, "DIV") == 0){ //Chamando funcao para DIV
             fdiv(comando, j, r);
-        } else if(strcasecmp(straux, "MOD") == 0){
-            printf("Voce selecionou MOD\n");
+        } else if(strcasecmp(straux, "MOD") == 0){ //Chamando funcao para MOD
             fmodz(comando, j, r);
-        } else if(strcasecmp(straux, "BEQ") == 0){
-            printf("Voce selecionou BEQ");
-        } else if(strcasecmp(straux, "BLT") == 0){
-            printf("Voce selecionou BLT");
-        } else if(strcasecmp(straux, "JMP") == 0){
-            printf("Voce selecionou JMP");
-        } else if(strcasecmp(straux, "LOAD") == 0){
-            printf("Voce selecionou LOAD");
-        } else if(strcasecmp(straux, "STORE") == 0){
-            printf("Voce selecionou STORE");
-        } else if(strcasecmp(straux, "PRINT") == 0){
-            printf("Voce selecionou PRINT");
-        } else if(strcasecmp(straux, "EXIT") == 0){
-            printf("Voce selecionou EXIT\n");
+        } else if(strcasecmp(straux, "BEQ") == 0){ //Chamando funcao para BEQ
+            j = fbeq(comando, j, r);
+        } else if(strcasecmp(straux, "BLT") == 0){ //Chamando funcao para BLT
+            j = fblt(comando, j, r);
+        } else if(strcasecmp(straux, "JMP") == 0){ //Chamando funcao para JMP
+            j = fjmp(comando, j);
+        } else if(strcasecmp(straux, "LOAD") == 0){ //Chamando funcao para lOAD
+            fload(comando, j, r, memory);
+        } else if(strcasecmp(straux, "STORE") == 0){ //Chamando funcao para STORE
+            fstore(comando, j, r, memory);
+        } else if(strcasecmp(straux, "PRINT") == 0){ //Chamando funcao para PRINT
+            fprint(comando, j, r);
+        } else if(strcasecmp(straux, "EXIT") == 0){ //Finalizando a execucao
             break;
         }
         j++;

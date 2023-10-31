@@ -9,7 +9,7 @@ int main(void){
     scanf("%d\n", &x); //Para saber quantas linhas serão usadas
     
     for(i=0; i<x; i++){
-        leComando(comando, i); //Lendo as isntrucoes
+        leComando(comando, i); //Lendo as instrucoes
     }
 
     controle(comando); //Aqui onde o trabalho acontece

@@ -1,17 +1,13 @@
-main: main.o leitura.o controle.o opart.o
-	cc -Wall main.o leitura.o controle.o opart.o -o main
+SRC = main.c leitura.c controle.c opart.c oplog.c opmem.c saida.c
+OBJ = $(SRC:.c=.o)
+CC = gcc
+CFLAGS = -Wall
 
-main.o: main.c
-	cc -Wall -c main.c
+main: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o main
 
-leitura.o: leitura.c
-	cc -Wall -c leitura.c
-
-controle.o: controle.c
-	cc -Wall -c controle.c
-
-opart.o: opart.c
-	cc -Wall -c opart.c
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
-	rm main main.o leitura.o controle.o opart.o
+	rm main $(OBJ)
