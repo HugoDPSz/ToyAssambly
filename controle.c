@@ -18,7 +18,6 @@ void controle(char comando[][30]){
         memory[i] = 0;
     }
 
-    printf("\n");
     for(i=0; i<100000; i++){
         sscanf(comando[j], "%s", straux); //Obtendo a parte necessaria para identificar o que foi pedido
 

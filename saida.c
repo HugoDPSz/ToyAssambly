@@ -7,5 +7,5 @@ void fprint(char comando[][30], int linha, int r[32]){
 
     sscanf(comando[linha], "%s R%d", straux, &x);
 
-    printf("%d\n", r[x]);
+    printf("%d\n", r[x]); //Imprime o registrador pedido
 }
