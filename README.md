@@ -6,9 +6,9 @@ Para usar este projeto, siga estas etapas:
 2. Use o comando "make"
 3. Execute com "./main"
 ## O que o projeto faz
-O projeto simula um interpretador de Assembly simples, uma linguagem de baixo nível que está em um nível de abstração bem próximo a da arquitetura da máquina programada.
-Este projeto em sua primeira linha recebe um número inteiro que vai determinar a quantidade de comandos que o programa irá ler
-Cada linha após a primeira receberá exatamanete um comando
+O projeto simula um interpretador de Assembly simples, uma linguagem de baixo nível que está em um nível de abstração bem próximo a da arquitetura da máquina programada\
+Este projeto em sua primeira linha recebe um número inteiro que vai determinar a quantidade de comandos que o programa irá ler\
+Cada linha após a primeira receberá exatamanete um comando\
 Como um Assembly, o projeto apresenta 32 registradores que vão de R0 a R31 e armezenam valores de inteiros
 Além dos registradores, o programa tem uma mémoria com 1000 espaços que recebem inteiros
 ## Funcionalidades
